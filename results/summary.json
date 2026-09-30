@@ -1,0 +1,59 @@
+{
+  "hardware": "Tesla T4 (Colab), fp16 autocast, torch 2.11.0+cu128",
+  "data": "TinyStories, byte-level (vocab 256): 100M train bytes, 2M val bytes",
+  "dense_model": {
+    "layers": 6,
+    "d_model": 384,
+    "heads": 6,
+    "ffn": "SwiGLU, hidden 1536",
+    "context": 256,
+    "params": "14.36M",
+    "steps": 3000,
+    "batch": 64,
+    "lr": 0.001
+  },
+  "continuation": {
+    "steps": 2000,
+    "lr": 0.001,
+    "schedule": "warmup 50, constant, linear decay last 25%",
+    "probabilistic_selection_steps": 200,
+    "bias_gamma": 0.001,
+    "aux_coef": 0.0001,
+    "z_coef": 0.001
+  },
+  "dense_checkpoint_val_loss": 0.6769,
+  "results": [
+    {
+      "model": "Dense control",
+      "total": "14.36M",
+      "active": "14.36M",
+      "val_at_conversion": 0.6769,
+      "val_final": 0.5961,
+      "ms_per_step": 165
+    },
+    {
+      "model": "MoE copy (8x1536, top-2)",
+      "total": "88.69M",
+      "active": "24.99M",
+      "val_at_conversion": 0.6769,
+      "val_final": 0.5955,
+      "ms_per_step": 325
+    },
+    {
+      "model": "MoE drop r=0.5 (8x1536, top-2)",
+      "total": "88.69M",
+      "active": "24.99M",
+      "val_at_conversion": 1.3832,
+      "val_final": 0.5989,
+      "ms_per_step": 325
+    },
+    {
+      "model": "MoE partition (32x192, top-8)",
+      "total": "46.28M",
+      "active": "14.43M",
+      "val_at_conversion": 1.1777,
+      "val_final": 0.6027,
+      "ms_per_step": 478
+    }
+  ]
+}

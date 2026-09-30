@@ -1,0 +1,22 @@
+=== Dense control ===
+Once upon a time, there was a little girl named Lily. She loved to eat candy at school every day. One day, her mom told her to be careful and do her to send her to the airport. Lily didn't like to lie down at all, but her mom said they could buy her a sour soup for her.
+
+Lily went to her mom and said she could pick
+
+=== MoE copy (8x1536, top-2) ===
+Once upon a time, there was a cat named Wooly. Wooly was very brave and had a nightmare in her house. She would often fight in her interesting wool.
+
+Sometimes there was many books and toys and bugs. One day, when Cooly was building her own into the kitchen, she heard a sound. It was a surprise with a little girl w
+
+=== MoE drop r=0.5 (8x1536, top-2) ===
+Once upon a time there was a little girl named Daisy. Daisy loved to play outside and inch could share her food.
+
+One day Daisy's friend, Susy, asked her why she looked down to take a closer look. Daisy told her "How could I polish Daisy?" Susy nodded and started to polish daisy.
+
+Daisy said, "This is for a long ti
+
+=== MoE partition (32x192, top-8) ===
+Once upon a time, there was a boy named Timmy. Timmy loved to play with his toys all day long. One day, Timmy's mommy asked him to take off a big trip and put on his hat. Timmy thought his mommy looked very nice and made him happy.
+
+Later that day, Timmy's friend came over to play. Timmy was very proud of his new t
+

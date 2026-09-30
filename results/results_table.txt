@@ -1,0 +1,19 @@
+dense checkpoint val loss: 0.6769   params 14.36M
+------------------------------------------------------------------------------------------
+MoE copy (8x1536, top-2)           val loss right after conversion: 0.6769 | total 88.69M | active 24.99M
+MoE drop r=0.5 (8x1536, top-2)     val loss right after conversion: 1.3832 | total 88.69M | active 24.99M
+MoE partition (32x192, top-8)      val loss right after conversion: 1.1777 | total 46.28M | active 14.43M
+
+model                                 total   active  val@convert  val final  drop vs ckpt  ms/step
+----------------------------------------------------------------------------------------------------
+Dense checkpoint (phase 1 end)       14.36M   14.36M                  0.6769
+Dense control                        14.36M   14.36M       0.6769     0.5961       -0.0807      165
+MoE copy (8x1536, top-2)             88.69M   24.99M       0.6769     0.5955       -0.0813      325
+MoE drop r=0.5 (8x1536, top-2)       88.69M   24.99M       1.3832     0.5989       -0.0780      325
+MoE partition (32x192, top-8)        46.28M   14.43M       1.1777     0.6027       -0.0741      478
+
+Checks:
+  Dense control                      final < start: True | final < dense ckpt: True | evals that did not go up: 100%
+  MoE copy (8x1536, top-2)           final < start: True | final < dense ckpt: True | evals that did not go up: 80%
+  MoE drop r=0.5 (8x1536, top-2)     final < start: True | final < dense ckpt: True | evals that did not go up: 100%
+  MoE partition (32x192, top-8)      final < start: True | final < dense ckpt: True | evals that did not go up: 95%
